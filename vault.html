@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Voting Panel</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <style>
+      .headerFont{ font-family: 'Ubuntu', sans-serif; font-size: 24px; }
+      .subFont{ font-family: 'Raleway', sans-serif; font-size: 14px; }
+      .specialHead{ font-family: 'Oswald', sans-serif; }
+      .normalFont{ font-family: 'Roboto Condensed', sans-serif; }
+      .table th, .table td { text-align: center; vertical-align: middle; }
+      .candidate-photo { width: 50px; height: 50px; border-radius: 50%; }
+      .candidate-symbol { width: 40px; height: 40px; }
+    </style>
+  </head>
+  <body>
+  
+  <div class="container">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <div class="navbar-header">
+          <a href="index.html" class="navbar-brand headerFont text-lg"><strong>eVoting</strong></a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-nav-collapse">
+          <button type="submit" class="btn btn-success navbar-right navbar-btn"><span class="normalFont"><strong>Admin Panel</strong></span></button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" style="padding:100px;">
+      <div class="row">
+        <div class="col-sm-12" style="border:2px solid gray;">
+          <div class="page-header">
+            <h2 class="specialHead">Choose Your Candidate.</h2>
+            <p class="normalFont">Prove Your Authenticity as a Correct Voter.</p>
+          </div>
+          
+          <form action="saveVote.php" method="POST">
+            <div class="form-group">
+              <label>Voter's Name :</label>
+              <input type="text" name="voterName" placeholder="Enter Your Full Name" class="form-control" required/><br>
+              
+              <label>Voter's Email ID :</label>
+              <input type="email" name="voterEmail" placeholder="Enter Your Email ID" class="form-control" required/><br>
+              
+              <label>Voter's Card No. :</label>
+              <input type="text" name="voterID" pattern="[0-9]{6}" placeholder="Enter Your 6-Digit Voter Unique ID" class="form-control" required/><br>
+              
+              <h3 class="normalFont">Select Your Candidate</h3>
+              
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Candidate ID</th>
+                    <th>Photo</th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Symbol Name</th>
+                    <th>Vote</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>001</td>
+                    <td><img src="images/photo_1.jpg" class="candidate-photo" alt="BJP Candidate"></td>
+                    <td>Siddappa Mandi</td>
+                    <td><img src="images/bjp.png" class="candidate-symbol" alt="BJP Symbol"></td>
+                    <td>BJP</td>
+                    <td><input type="radio" name="selectedCandidate" value="BJP"></td>
+                  </tr>
+                  <tr>
+                    <td>002</td>
+                    <td><img src="images/photo_2.jpg" class="candidate-photo" alt="CONG Candidate"></td>
+                    <td>Rahul Mane</td>
+                    <td><img src="images/hand.png" class="candidate-symbol" alt="CONG Symbol"></td>
+                    <td>CONG</td>
+                    <td><input type="radio" name="selectedCandidate" value="CONG"></td>
+                  </tr>
+                  <tr>
+                    <td>003</td>
+                    <td><img src="images/photo_3.jpg" class="candidate-photo" alt="TV Candidate"></td>
+                    <td>Mahesh Kolar</td>
+                    <td><img src="images/electronic.png" class="candidate-symbol" alt="TV Symbol"></td>
+                    <td>TV</td>
+                    <td><input type="radio" name="selectedCandidate" value="TV"></td>
+                  </tr>
+                  <tr>
+                    <td>004</td>
+                    <td><img src="images/photo_4.jpg" class="candidate-photo" alt="FAN Candidate"></td>
+                    <td>Pawan Bagade</td>
+                    <td><img src="images/fan.png" class="candidate-symbol" alt="FAN Symbol"></td>
+                    <td>FAN</td>
+                    <td><input type="radio" name="selectedCandidate" value="FAN"></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              <br><hr>
+              <button type="submit" name="submit" class="btn btn-primary"><strong>Submit</strong></button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
